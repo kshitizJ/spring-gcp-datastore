@@ -1,0 +1,23 @@
+PROJECT_ID: bookmark-spring-cloud-381705
+
+server:
+  port: ${DEFAULT_PORT:80}
+
+spring:
+  data:
+    rest:
+      base-path: /api
+  cloud:
+    config:
+      namespace: default
+      enabled: true
+      name: Cloud
+      profile: dev, cloud, bigquery
+      label: master
+    gcp:
+      credentials:
+        location: classpath:key.json
+      datastore:
+        namespace: ${DATASTORE_NAME:marketplace}
+        project-id: ${PROJECT_ID:bookmark-spring-cloud-381705}
+        enabled: true
